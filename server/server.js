@@ -1,7 +1,7 @@
-const path = require('path')
+const path = require('path');
 const express = require('express');
 const app = express();
-const PORT=3000;
+const PORT = 3000;
 
 const apiRouter = require('./routes/api.js');
 const authRouter = require('./routes/auth.js');
@@ -12,28 +12,31 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/*', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../public/index.html'));
+});
+
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 app.use('/resume', resumeRouter);
 app.use('/top10', top10Router);
 
-app.use('*', (req, res) =>  res.status(404).send('Not Found'))
+app.use('*', (req, res) => res.status(404).send('Not Found'));
 
-app.use ((err,req,res,next) => {
-    // console.error(err.stack);
-    const defaultError = {
-      log: 'Express error handler caught unknown middleware error',
-      status: 500,
-      message: {err: 'an error occured'},
-    }
-    const errorObj = Object.assign (defaultError, err);
-    console.log(errorObj.log);
-    res.status(errorObj.status).send(errorObj.message);
-  });
+app.use((err, req, res, next) => {
+  // console.error(err.stack);
+  const defaultError = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'an error occured' },
+  };
+  const errorObj = Object.assign(defaultError, err);
+  console.log(errorObj.log);
+  res.status(errorObj.status).send(errorObj.message);
+});
 
+app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
+});
 
-  app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}`);
-  });
-  
-  module.exports = app;
+module.exports = app;

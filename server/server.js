@@ -8,7 +8,7 @@ const authRouter = require('./routes/auth.js');
 const resumeRouter = require('./routes/resume.js');
 const top10Router = require('./routes/top10.js');
 
-
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

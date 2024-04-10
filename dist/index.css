@@ -1,0 +1,168 @@
+/* WelcomePage.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1919; /* Change the background color of the whole page */
+}
+
+.welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.welcome-content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center align the text */
+}
+
+.welcome-content h1.Welcome {
+  font-size: 2.5rem;
+  color: #8b4513;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a text shadow */
+}
+
+.welcome-content h1 {
+  margin-bottom: 10px;
+}
+
+.welcome-content p {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.welcome-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-content form button {
+  margin-top: 20px;
+  align-self: center;
+}
+
+/* LoginPage.css */
+
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 2px solid blue;
+
+
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #007bff;
+  font-size: 1.2em;
+}
+
+.login-form input[type='text'],
+.login-form input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+
+  color: #fff;
+  border: none;
+  background-color: #ff4e50;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+.login-form button:hover {
+  background-color: #ff0505;
+}
+
+/* LoginPage.css */
+
+.Signin-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid blue;
+  
+  
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .Signin-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #007bff;
+    font-size: 1.2em;
+  }
+  
+  .Signin-form input[type='text'],
+  .Signin-form input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  .Signin-form button {
+    width: 100%;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  background-color: #ff4e50;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+  /* border-radius: 50%;  */
+  }
+  
+  
+  
+  
+  .Signin-form button:hover {
+    background-color: #ff0505;
+  }
+  

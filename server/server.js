@@ -3,6 +3,10 @@ const express = require('express');
 const cors = require('cors') 
 const app = express();
 const PORT = 3000;
+require('dotenv').config();
+const axios = require('axios');
+const museUrl = process.env.muse;
+
 
 const apiRouter = require('./routes/api.js');
 const authRouter = require('./routes/auth.js');

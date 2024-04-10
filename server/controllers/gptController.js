@@ -4,6 +4,7 @@ const API_KEY = process.env.OPENAI_API_KEY;
 let gptController = {};
 
 gptController.compare = (req, res, next) => {
+  const {resume} = req.body
   // console.log(API_URL, API_KEY);
   fetch(API_URL, {
     method: "POST",
@@ -21,7 +22,7 @@ gptController.compare = (req, res, next) => {
         },
         {
           role: "user",
-          content: "resume:",
+          content: "resume:" + resume,
         },
         {
           role: "user",

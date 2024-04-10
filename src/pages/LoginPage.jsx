@@ -44,25 +44,29 @@ export const LoginPage = () => {
 
   return (
     <div className='title'>
-    <h1>Welcome to CareerQuest</h1>
-    <h2>Signin Here</h2>
-    <div className='login-form'>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input type='text' value={username} onChange={handleUsernameChange} />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type='password'
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <button type='submit'>Login</button>
-      </form>
-    </div>
+      <h1>Welcome to CareerQuest</h1>
+      <h2>Signin Here</h2>
+      <div className='login-form'>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Username:</label>
+            <input
+              type='text'
+              value={username}
+              onChange={handleUsernameChange}
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input
+              type='password'
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <button type='submit'>Login</button>
+        </form>
+      </div>
     </div>
   );
 };

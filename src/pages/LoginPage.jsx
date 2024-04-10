@@ -32,7 +32,7 @@ export const LoginPage = () => {
       if (response.ok) {
         // Redirect to the welcome page upon successful login
         console.log('successful!');
-        navigate('../welcome');
+        navigate('../welcome', { state: { username } });
       } else {
         setError('Login failed. Please check your credentials.');
       }

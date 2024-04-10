@@ -1,9 +1,14 @@
 const express = require('express');
+const authController = require('../controllers/authController');
 
 const router = express.Router();
 
-router.get ('/', (req,res) => { 
-  return res.status(200).json('Hello World!')
+router.post('/', authController.signup, (req, res) => {
+  return res.status(201).json(res.locals.user_id);
+});
+
+router.post('/signin', authController.signin, (req, res) => {
+    return res.status(201).json(res.locals.found)
 })
 
 module.exports = router;

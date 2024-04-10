@@ -47,7 +47,12 @@ export const SigninPage = () => {
   };
 
   return (
+    <div className='title'>
+   <h1>Welcome to CareerQuest</h1>
+   <h2>Signup Here</h2>
     <div className="Signin-form">
+
+      
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
@@ -65,6 +70,7 @@ export const SigninPage = () => {
       </form>
       <button onClick={handleAlreadyHaveAccount}>Have an account? Log in</button>
         
+    </div>
     </div>
   );
 };

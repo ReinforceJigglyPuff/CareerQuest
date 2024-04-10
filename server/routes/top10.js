@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
+const dashBoardController = require('../controllers/dashBoard')
 
 const router = express.Router();
 const museUrl = process.env.muse;
@@ -24,4 +25,8 @@ router.get('/', (req, res) => {
       return res.status(500).json({ error: 'Failed to fetch data' });
     });
 });
+
+router.post('/job', dashBoardController.job, (req, res) => {
+  res.status(201).json(res.locals.data)
+})
 module.exports = router;

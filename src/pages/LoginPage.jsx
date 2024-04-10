@@ -46,6 +46,9 @@ export const LoginPage = () => {
   };
 
   return (
+    <div className='title'>
+    <h1>Welcome to CareerQuest</h1>
+    <h2>Signin Here</h2>
     <div className='login-form'>
 
       <form onSubmit={handleSubmit}>
@@ -59,6 +62,7 @@ export const LoginPage = () => {
         </div>
         <button type="submit">Login</button>
       </form>
+    </div>
     </div>
   );
 };

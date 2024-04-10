@@ -11,7 +11,7 @@ jobController.top10 = (req, res, next) => {
     .get(fullURL)
     .then((response) => {
       const data = response.data;
-      console.log(data);
+      // console.log(data);
       data.results.forEach((el) => {
         el.contents = el.contents.replace(/<[^>]*>/g, '').replace(/\n-?/g, '');
         const wordCount = el.contents.trim().split(/\s+/).length;

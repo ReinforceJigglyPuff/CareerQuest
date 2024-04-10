@@ -1,45 +1,48 @@
-const db = require('../models/SQL');
-
+const db = require("../models/SQL");
+const API_URL = process.env.OPENAI_API_URL;
+const API_KEY = process.env.OPENAI_API_KEY;
 let gptController = {};
 
 gptController.compare = (req, res, next) => {
+  // console.log(API_URL, API_KEY);
   fetch(API_URL, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Authorization: 'Bearer ' + API_KEY,
-      'Content-Type': 'application/json',
+      Authorization: "Bearer " + API_KEY,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: 'gpt-3.5-turbo-0125',
+      model: "gpt-3.5-turbo-0125",
       messages: [
         {
-          role: 'user',
-          content: 'The company i am applying for is' + ' ' + companyName,
-        },
-        {
-          role: 'user',
-          content: 'Here is the job description' + ' ' + description,
-        },
-        {
-          role: 'user',
-          content: 'my resume is' + ' ' + Summary,
-        },
-        {
-          role: 'user',
-          content: `Separate each question and Answer each question in ${sentences} sentences with technical communication based on all information given ${Question}`,
-        },
-        {
-          role: 'user',
+          role: "user",
           content:
-            'Has to be software engineer related'
+            "rank the following job descriptions compared to the resumes from 1 to 10, 1 being the highest. respond with nothing but an array with these job descriptions in an array, with index 0 being rank 1",
         },
+        {
+          role: "user",
+          content: "resume:",
+        },
+        {
+          role: "user",
+          content: "job descriptions: " + JSON.stringify(res.locals.data),
+        },
+        // {
+        //   role: 'user',
+        //   content:
+        //     'Has to be software engineer related'
+        // },
       ],
     }),
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      setinput1(data.choices[0].message.content);
+      // console.log(data);
+      const content = data.choices[0].message.content;
+
+      res.locals.gpt=content;
+      console.log(res.locals.gpt);
+      return next();
     })
     .catch((error) => {
       console.error(error);

@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const jobController = require('../controllers/jobController');
+const gptController = require('../controllers/gptController');
 
-
-router.get('/', jobController.top10, (req, res) => {
-  return res.status(200).json(res.locals.data);
+router.post('/', jobController.top10, gptController.compare, (req, res) => {
+  return res.status(200).json(res.locals.data).json(res.locals.gpt);
 });
 
 module.exports = router;

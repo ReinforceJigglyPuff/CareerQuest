@@ -5,7 +5,7 @@ require('dotenv').config();
 const router = express.Router();
 const museUrl = process.env.muse;
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
   axios
     .get(museUrl)
     .then((response) => {

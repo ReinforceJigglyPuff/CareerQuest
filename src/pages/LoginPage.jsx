@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../css/LoginPage.css'
-
+import '../../css/LoginPage.css';
 
 export const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -32,9 +31,8 @@ export const LoginPage = () => {
 
       if (response.ok) {
         // Redirect to the welcome page upon successful login
-        console.log('successful!')
-        navigate('../welcome')
- 
+        console.log('successful!');
+        navigate('../welcome');
       } else {
         setError('Login failed. Please check your credentials.');
       }
@@ -42,24 +40,25 @@ export const LoginPage = () => {
       setError('An error occurred. Please try again later.');
       console.error('Error during login:', error);
     }
-
   };
 
   return (
     <div className='login-form'>
-
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
-          <input type="text" value={username} onChange={handleUsernameChange} />
+          <input type='text' value={username} onChange={handleUsernameChange} />
         </div>
         <div>
           <label>Password:</label>
-          <input type="password" value={password} onChange={handlePasswordChange} />
+          <input
+            type='password'
+            value={password}
+            onChange={handlePasswordChange}
+          />
         </div>
-        <button type="submit">Login</button>
+        <button type='submit'>Login</button>
       </form>
     </div>
   );
 };
-

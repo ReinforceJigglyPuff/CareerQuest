@@ -10,13 +10,15 @@ import {
 import { WelcomePage } from './pages/WelcomePage.jsx';
 import { LoginPage } from './pages/LoginPage.jsx';
 import { SigninPage } from './pages/SigninPage.jsx';
+import { DashBoardPage } from './pages/DashboardPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route index={true} path="/" element={<SigninPage />} />
-      <Route path="/signin" element={<LoginPage />} />
-      <Route path="/welcome" element={<WelcomePage />} />
+    <Route path='/' element={<App />}>
+      <Route index={true} path='/' element={<SigninPage />} />
+      <Route path='/signin' element={<LoginPage />} />
+      <Route path='/welcome' element={<WelcomePage />} />
+      <Route path='/dashboard' element={<DashBoardPage />} />
     </Route>
   )
 );

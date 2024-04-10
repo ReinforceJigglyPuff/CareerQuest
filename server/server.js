@@ -4,11 +4,11 @@ const cors = require('cors')
 const app = express();
 const PORT = 3000;
 require('dotenv').config();
-const axios = require('axios');
-const museUrl = process.env.muse;
+// const axios = require('axios');
+// const museUrl = process.env.muse;
 
 
-const apiRouter = require('./routes/api.js');
+const gptRouter = require('./routes/gpt.js');
 const authRouter = require('./routes/auth.js');
 const resumeRouter = require('./routes/resume.js');
 const top10Router = require('./routes/top10.js');
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.use('/api', apiRouter);
+app.use('/gpt', gptRouter);
 app.use('/auth', authRouter);
 app.use('/resume', resumeRouter);
 app.use('/top10', top10Router);

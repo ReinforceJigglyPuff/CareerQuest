@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../css/DashBoard.css';
-// const abc = require('../../server/routes/top10')
+
 export const DashBoardPage = () => {
   const [jobListings, setJobListings] = useState([]);
 

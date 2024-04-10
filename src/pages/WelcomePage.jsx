@@ -10,11 +10,12 @@ export function WelcomePage() {
   const [jobTitle, setJobTitle] = useState("");
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState(null); // State for error handling
+  const navigate = useNavigate()
  
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-
+  
     try {
       const response = await fetch("http://localhost:3000/top10", {
         method: "POST",
@@ -28,19 +29,21 @@ export function WelcomePage() {
           location,
         }),
       });
-
-     
-
+  
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`); // Throw error for non-2xx responses
       }
-
+  
       const data = await response.json();
-      console.log("Success! Fetched data:", data); // Handle successful response (if applicable)
+      console.log("Success! Fetched data:", data); // Log successful response
+  
+      // Navigate to dashboard only after fetching data
+      navigate("/dashboard", { state: { data } });
     } catch (error) {
       setErrorMessage(error.message); // Set error message for display
     }
   };
+  
 
   return (
     <div className="welcome-page">

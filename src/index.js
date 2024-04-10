@@ -10,6 +10,7 @@ import {
 import { WelcomePage } from './pages/WelcomePage.jsx';
 import { LoginPage } from './pages/LoginPage.jsx';
 import { SigninPage } from './pages/SigninPage.jsx';
+import { DashBoardPage } from './pages/DashBoardpage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<SigninPage />} />
       <Route path="/signin" element={<LoginPage />} />
       <Route path="/welcome" element={<WelcomePage />} />
+      <Route path= '/dashboard' element={<DashBoardPage/>}/>
     </Route>
   )
 );

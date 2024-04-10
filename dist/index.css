@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #1e1919; /* Change the background color of the whole page */
+  background-color: #1e1919; 
 }
 
 .welcome-page {
@@ -68,10 +68,13 @@ body {
 
 /* LoginPage.css */
 
+
+
+
 .login-form {
   max-width: 400px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 100px;
   border: 2px solid blue;
 
 
@@ -92,7 +95,7 @@ body {
   padding: 10px;
   margin-bottom: 15px;
   border: 2px solid #007bff;
-  border-radius: 5px;
+  border-radius: px;
   background-color: #f9f9f9;
   transition: border-color 0.3s ease;
 }
@@ -116,13 +119,23 @@ body {
   background-color: #ff0505;
 }
 
-/* LoginPage.css */
+.title {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
+}
 
 .Signin-form {
+  
+
     max-width: 400px;
     margin: 0 auto;
     padding: 30px;
     border: 2px solid blue;
+    
   
   
     background-color: #f9f9f9;
@@ -131,6 +144,7 @@ body {
   
   .Signin-form label {
     display: block;
+
     margin-bottom: 10px;
     color: #007bff;
     font-size: 1.2em;
@@ -166,3 +180,13 @@ body {
     background-color: #ff0505;
   }
   
+body {
+  background-color: white;
+}
+.job-listing {
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+

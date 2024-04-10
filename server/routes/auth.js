@@ -8,7 +8,7 @@ router.post('/', authController.signup, (req, res) => {
 });
 
 router.post('/login', authController.signin, (req, res) => {
-    return res.status(201).json(res.locals.found)
+    return res.status(201).json(res.locals.found);
 })
 
 module.exports = router;

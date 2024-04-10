@@ -3,26 +3,24 @@ const axios = require('axios');
 require('dotenv').config();
 
 const router = express.Router();
+const museUrl = process.env.muse;
 
-const joobleUrl = process.env.jooble;
+router.post('/', (req, res) => {
+  axios
+    .get(museUrl)
+    .then((response) => {
+      const data = response.data;
+      data.results.forEach((el) => {
+        el.contents = el.contents.replace(/<[^>]*>/g, '').replace(/\n-?/g, '');
+        const wordCount = el.contents.trim().split(/\s+/).length;
+        el.wordCount = wordCount;
+      });
+      res.locals.data = data.results;
+      return res.status(200).json(res.locals.data);
+    })
 
-router.post('/', async (req, res) => {
-  try {
-    const joobleRequestBody = {
-      keywords: req.body.keywords,
-      location: req.body.location,
-    };
-
-    const joobleResponse = await axios.post(joobleUrl, joobleRequestBody);
-    const joobleData = joobleResponse.data;
-
-    return res.status(200).json({
-      jooble: joobleData,
+    .catch((error) => {
+      console.error('Error fetching data:', error);
+      return res.status(500).json({ error: 'Failed to fetch data' });
     });
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return res.status(500).json({ error: 'Failed to fetch data' });
-  }
 });
-
-module.exports = router;

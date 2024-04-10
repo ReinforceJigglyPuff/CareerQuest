@@ -24,3 +24,4 @@ router.post('/', (req, res) => {
       return res.status(500).json({ error: 'Failed to fetch data' });
     });
 });
+module.exports = router;

@@ -30,9 +30,10 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
-    "dotenv-webpack": "^8.1.0",
+    "asynckit": "^0.4.0",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
+    "dotenv-webpack": "^8.1.0",
     "esm": "^3.2.25",
     "express": "^4.18.2",
     "mini-css-extract-plugin": "^2.8.1",

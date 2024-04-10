@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../css/LoginPage.css'
+import '../../css/SigninPage.css';
 
-
-export const LoginPage = () => {
+export const SigninPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -20,9 +19,9 @@ export const LoginPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log('Login submitted with:', username, password);
+    console.log('Sign in submitted with:', username, password);
     try {
-      const response = await fetch('http://localhost:3000/auth/login', {
+      const response = await fetch('http://localhost:3000/auth/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,9 +31,8 @@ export const LoginPage = () => {
 
       if (response.ok) {
         // Redirect to the welcome page upon successful login
-        console.log('successful!')
-        navigate('../welcome')
- 
+        console.log('successful!');
+        navigate('./signin');
       } else {
         setError('Login failed. Please check your credentials.');
       }
@@ -42,12 +40,14 @@ export const LoginPage = () => {
       setError('An error occurred. Please try again later.');
       console.error('Error during login:', error);
     }
+  };
 
+  const handleAlreadyHaveAccount = () => {
+    navigate('./signin');
   };
 
   return (
-    <div className='login-form'>
-
+    <div className="Signin-form">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
@@ -55,11 +55,16 @@ export const LoginPage = () => {
         </div>
         <div>
           <label>Password:</label>
-          <input type="password" value={password} onChange={handlePasswordChange} />
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Signup</button>
       </form>
+      <button onClick={handleAlreadyHaveAccount}>Have an account? Log in</button>
+        
     </div>
   );
 };
-

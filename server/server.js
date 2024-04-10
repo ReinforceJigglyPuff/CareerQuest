@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const cors = require('cors') 
 const app = express();
 const PORT = 3000;
 
@@ -11,6 +12,7 @@ const top10Router = require('./routes/top10.js');
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 app.get('/*', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../public/index.html'));

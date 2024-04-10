@@ -7,7 +7,7 @@ router.post('/', authController.signup, (req, res) => {
   return res.status(201).json(res.locals.user_id);
 });
 
-router.post('/signin', authController.signin, (req, res) => {
+router.post('/login', authController.signin, (req, res) => {
     return res.status(201).json(res.locals.found)
 })
 

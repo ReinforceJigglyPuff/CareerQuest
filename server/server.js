@@ -14,15 +14,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.get('/*', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../public/index.html'));
-});
-
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 app.use('/resume', resumeRouter);
 app.use('/top10', top10Router);
-
+app.get('/', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../public/index.html'));
+});
 app.use('*', (req, res) => res.status(404).send('Not Found'));
 
 app.use((err, req, res, next) => {

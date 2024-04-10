@@ -6,7 +6,7 @@
     "start": "npm run start:frontend",
     "start:frontend": "webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack -w",
-    "start:backend": "nodemon server/server.js",
+    "start:backend": "nodemonmon server/server.js",
     "start:dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open \" \"nodemon server/server.js\""
   },
   "keywords": [],
@@ -30,6 +30,9 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
+    "asynckit": "^0.4.0",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "cors": "^2.8.5",
     "dotenv-webpack": "^8.1.0",
     "esm": "^3.2.25",
